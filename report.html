@@ -13491,7 +13491,7 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">human_files_short</span> <span class="o">=</span> <span class="n">human_files</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
@@ -13517,6 +13517,7 @@ AAAAAElFTkSuQmCC
     <span class="n">total_images</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human Face Dataset:</span><span class="se">\n</span><span class="s2">Images with faces detected: &quot;</span><span class="p">,</span> <span class="n">detected_faces</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Images: &quot;</span><span class="p">,</span> <span class="n">total_images</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percent: &quot;</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">detected_faces</span><span class="o">/</span><span class="n">total_images</span><span class="p">,</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
 
 
     
@@ -13539,6 +13540,7 @@ AAAAAElFTkSuQmCC
 <pre>Human Face Dataset:
 Images with faces detected:  98 
 Total Images:  100
+Percent:  98.0 %
 </pre>
 </div>
 </div>
@@ -13549,7 +13551,7 @@ Total Images:  100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">detected_faces</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13569,7 +13571,7 @@ Total Images:  100
     <span class="n">total_images</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog Dataset:</span><span class="se">\n</span><span class="s2">Images with faces detected: &quot;</span><span class="p">,</span> <span class="n">detected_faces</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Images: &quot;</span><span class="p">,</span> <span class="n">total_images</span><span class="p">)</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percent: &quot;</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">detected_faces</span><span class="o">/</span><span class="n">total_images</span><span class="p">,</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
     
 </pre></div>
 
@@ -13590,6 +13592,7 @@ Total Images:  100
 <pre>Dog Dataset:
 Images with faces detected:  11 
 Total Images:  100
+Percent:  11.0 %
 </pre>
 </div>
 </div>
@@ -13605,6 +13608,16 @@ Total Images:  100
 <p><strong>Question 2:</strong> This algorithmic choice necessitates that we communicate to the user that we accept human images only when they provide a clear view of a face (otherwise, we risk having unneccessarily frustrated users!). In your opinion, is this a reasonable expectation to pose on the user? If not, can you think of a way to detect humans in images that does not necessitate an image with a clearly presented face?</p>
 <p><strong>Answer:</strong></p>
 <p>We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ANSWER:
+It could be a reasonable thing to ask of a user, but the experience would be better if they didn't have to worry about it.  To detect humans, we should train something on a dataset that's not just made of faces.  We would need faces, as well as full body images in various poses.</p>
 
 </div>
 </div>
@@ -13637,7 +13650,7 @@ Total Images:  100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.applications.resnet50</span> <span class="k">import</span> <span class="n">ResNet50</span>
@@ -13675,7 +13688,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="k">import</span> <span class="n">image</span>                  
@@ -13712,7 +13725,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.applications.resnet50</span> <span class="k">import</span> <span class="n">preprocess_input</span><span class="p">,</span> <span class="n">decode_predictions</span>
@@ -13740,7 +13753,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### returns &quot;True&quot; if a dog is detected in the image stored at img_path</span>
@@ -13770,7 +13783,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">detected_dogs</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13783,6 +13796,7 @@ $$</p>
     <span class="n">total_images</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human Face Dataset:</span><span class="se">\n</span><span class="s2">Images with dogs detected: &quot;</span><span class="p">,</span> <span class="n">detected_dogs</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Images: &quot;</span><span class="p">,</span> <span class="n">total_images</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percent: &quot;</span><span class="p">,</span> <span class="n">detected_dogs</span><span class="o">/</span><span class="n">total_images</span><span class="p">,</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13802,6 +13816,7 @@ $$</p>
 <pre>Human Face Dataset:
 Images with dogs detected:  0 
 Total Images:  100
+Percent:  0.0 %
 </pre>
 </div>
 </div>
@@ -13812,7 +13827,7 @@ Total Images:  100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">detected_dogs</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13825,6 +13840,8 @@ Total Images:  100
     <span class="n">total_images</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog Dataset:</span><span class="se">\n</span><span class="s2">Images with dogs detected: &quot;</span><span class="p">,</span> <span class="n">detected_dogs</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Images: &quot;</span><span class="p">,</span> <span class="n">total_images</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percent: &quot;</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">detected_dogs</span><span class="o">/</span><span class="n">total_images</span><span class="p">,</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13844,6 +13861,7 @@ Total Images:  100
 <pre>Dog Dataset:
 Images with dogs detected:  100 
 Total Images:  100
+Percent:  100.0 %
 </pre>
 </div>
 </div>
@@ -13913,11 +13931,11 @@ Total Images:  100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#from PIL import ImageFile                            </span>
-<span class="c1">#ImageFile.LOAD_TRUNCATED_IMAGES = True                 </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">ImageFile</span>                            
+<span class="n">ImageFile</span><span class="o">.</span><span class="n">LOAD_TRUNCATED_IMAGES</span> <span class="o">=</span> <span class="kc">True</span>                 
 <span class="kn">from</span> <span class="nn">keras.preprocessing.image</span> <span class="k">import</span> <span class="n">ImageDataGenerator</span>
 
 <span class="c1">#THIS CAUSES MY PC TO RUN OUT OF MEMORY</span>
@@ -13974,9 +13992,18 @@ Total Images:  100
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I used a network similar to the one shown above.  The main differences is using relu activation, and doubling the number of filters at each layer.  I also added a 1x1 convolution with a depth of 3 to learn per pixel color preferences.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span><span class="p">,</span> <span class="n">GlobalAveragePooling2D</span>
@@ -14020,23 +14047,23 @@ Total Images:  100
 <pre>_________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-conv2d_33 (Conv2D)           (None, 224, 224, 3)       12        
+conv2d_5 (Conv2D)            (None, 224, 224, 3)       12        
 _________________________________________________________________
-conv2d_34 (Conv2D)           (None, 222, 222, 32)      896       
+conv2d_6 (Conv2D)            (None, 222, 222, 32)      896       
 _________________________________________________________________
 max_pooling2d_5 (MaxPooling2 (None, 111, 111, 32)      0         
 _________________________________________________________________
-conv2d_35 (Conv2D)           (None, 109, 109, 64)      18496     
+conv2d_7 (Conv2D)            (None, 109, 109, 64)      18496     
 _________________________________________________________________
 max_pooling2d_6 (MaxPooling2 (None, 54, 54, 64)        0         
 _________________________________________________________________
-conv2d_36 (Conv2D)           (None, 52, 52, 128)       73856     
+conv2d_8 (Conv2D)            (None, 52, 52, 128)       73856     
 _________________________________________________________________
 max_pooling2d_7 (MaxPooling2 (None, 26, 26, 128)       0         
 _________________________________________________________________
-global_average_pooling2d_4 ( (None, 128)               0         
+global_average_pooling2d_2 ( (None, 128)               0         
 _________________________________________________________________
-dense_4 (Dense)              (None, 133)               17157     
+dense_2 (Dense)              (None, 133)               17157     
 =================================================================
 Total params: 110,417.0
 Trainable params: 110,417.0
@@ -14060,7 +14087,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
@@ -14083,14 +14110,14 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">ModelCheckpoint</span>  
 
 <span class="c1">### TODO: specify the number of epochs that you would like to use to train the model.</span>
 
-<span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">batches</span> <span class="o">=</span> <span class="mi">100</span>
 
 <span class="c1">### Do NOT modify the code below this line.</span>
@@ -14124,195 +14151,81 @@ _________________________________________________________________
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Found 6680 images belonging to 133 classes.
 Found 835 images belonging to 133 classes.
-Epoch 1/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8851 - acc: 0.0087Epoch 00000: val_loss improved from inf to 4.86749, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 77s - loss: 4.8850 - acc: 0.0089 - val_loss: 4.8675 - val_acc: 0.0141
-Epoch 2/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8422 - acc: 0.0155Epoch 00001: val_loss improved from 4.86749 to 4.80653, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 4.8418 - acc: 0.0153 - val_loss: 4.8065 - val_acc: 0.0242
-Epoch 3/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7678 - acc: 0.0234Epoch 00002: val_loss improved from 4.80653 to 4.75185, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 4.7683 - acc: 0.0236 - val_loss: 4.7519 - val_acc: 0.0311
-Epoch 4/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7297 - acc: 0.0230Epoch 00003: val_loss improved from 4.75185 to 4.72567, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 65s - loss: 4.7299 - acc: 0.0232 - val_loss: 4.7257 - val_acc: 0.0190
-Epoch 5/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7005 - acc: 0.0278Epoch 00004: val_loss improved from 4.72567 to 4.68965, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 4.7008 - acc: 0.0275 - val_loss: 4.6896 - val_acc: 0.0312
-Epoch 6/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.6772 - acc: 0.0284Epoch 00005: val_loss did not improve
-100/100 [==============================] - 66s - loss: 4.6764 - acc: 0.0281 - val_loss: 4.6924 - val_acc: 0.0328
-Epoch 7/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.6449 - acc: 0.0351Epoch 00006: val_loss improved from 4.68965 to 4.68229, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 65s - loss: 4.6438 - acc: 0.0349 - val_loss: 4.6823 - val_acc: 0.0259
-Epoch 8/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.6054 - acc: 0.0365Epoch 00007: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.6038 - acc: 0.0366 - val_loss: 4.7039 - val_acc: 0.0484
-Epoch 9/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.5848 - acc: 0.0387Epoch 00008: val_loss improved from 4.68229 to 4.60850, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 65s - loss: 4.5854 - acc: 0.0383 - val_loss: 4.6085 - val_acc: 0.0432
-Epoch 10/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.5593 - acc: 0.0460Epoch 00009: val_loss improved from 4.60850 to 4.60206, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 68s - loss: 4.5601 - acc: 0.0459 - val_loss: 4.6021 - val_acc: 0.0437
-Epoch 11/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.5210 - acc: 0.0434Epoch 00010: val_loss improved from 4.60206 to 4.59181, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 4.5210 - acc: 0.0434 - val_loss: 4.5918 - val_acc: 0.0553
-Epoch 12/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.4915 - acc: 0.0481Epoch 00011: val_loss improved from 4.59181 to 4.47499, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 4.4915 - acc: 0.0480 - val_loss: 4.4750 - val_acc: 0.0397
-Epoch 13/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.4808 - acc: 0.0498Epoch 00012: val_loss did not improve
-100/100 [==============================] - 66s - loss: 4.4814 - acc: 0.0501 - val_loss: 4.5355 - val_acc: 0.0535
-Epoch 14/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.4419 - acc: 0.0500Epoch 00013: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.4422 - acc: 0.0499 - val_loss: 4.5214 - val_acc: 0.0484
-Epoch 15/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.4084 - acc: 0.0561Epoch 00014: val_loss improved from 4.47499 to 4.46211, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 4.4097 - acc: 0.0562 - val_loss: 4.4621 - val_acc: 0.0578
-Epoch 16/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.3590 - acc: 0.0591Epoch 00015: val_loss improved from 4.46211 to 4.43864, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 4.3602 - acc: 0.0592 - val_loss: 4.4386 - val_acc: 0.0466
-Epoch 17/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.3482 - acc: 0.0611Epoch 00016: val_loss improved from 4.43864 to 4.41942, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 65s - loss: 4.3489 - acc: 0.0609 - val_loss: 4.4194 - val_acc: 0.0587
-Epoch 18/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.3243 - acc: 0.0664Epoch 00017: val_loss improved from 4.41942 to 4.34760, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 4.3254 - acc: 0.0661 - val_loss: 4.3476 - val_acc: 0.0535
-Epoch 19/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.2891 - acc: 0.0674Epoch 00018: val_loss did not improve
-100/100 [==============================] - 65s - loss: 4.2867 - acc: 0.0678 - val_loss: 4.4255 - val_acc: 0.0641
-Epoch 20/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.2703 - acc: 0.0736Epoch 00019: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.2694 - acc: 0.0733 - val_loss: 4.4478 - val_acc: 0.0609
-Epoch 21/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.2364 - acc: 0.0781Epoch 00020: val_loss did not improve
-100/100 [==============================] - 66s - loss: 4.2353 - acc: 0.0786 - val_loss: 4.4831 - val_acc: 0.0639
-Epoch 22/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.2157 - acc: 0.0821Epoch 00021: val_loss improved from 4.34760 to 4.24607, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 4.2154 - acc: 0.0822 - val_loss: 4.2461 - val_acc: 0.0622
-Epoch 23/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.1885 - acc: 0.0799Epoch 00022: val_loss did not improve
-100/100 [==============================] - 66s - loss: 4.1872 - acc: 0.0800 - val_loss: 4.5001 - val_acc: 0.0518
-Epoch 24/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.1696 - acc: 0.0838Epoch 00023: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.1721 - acc: 0.0841 - val_loss: 4.4706 - val_acc: 0.0531
-Epoch 25/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.1665 - acc: 0.0879Epoch 00024: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.1676 - acc: 0.0878 - val_loss: 4.2524 - val_acc: 0.0703
-Epoch 26/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.1313 - acc: 0.0883Epoch 00025: val_loss improved from 4.24607 to 4.23316, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 4.1328 - acc: 0.0883 - val_loss: 4.2332 - val_acc: 0.0864
-Epoch 27/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.1081 - acc: 0.1009Epoch 00026: val_loss improved from 4.23316 to 4.16744, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 4.1063 - acc: 0.1008 - val_loss: 4.1674 - val_acc: 0.0881
-Epoch 28/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.1010 - acc: 0.0911Epoch 00027: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.1021 - acc: 0.0910 - val_loss: 4.2132 - val_acc: 0.0846
-Epoch 29/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.0758 - acc: 0.1005Epoch 00028: val_loss did not improve
-100/100 [==============================] - 68s - loss: 4.0757 - acc: 0.1006 - val_loss: 4.3540 - val_acc: 0.0719
-Epoch 30/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.0721 - acc: 0.0941Epoch 00029: val_loss did not improve
-100/100 [==============================] - 66s - loss: 4.0716 - acc: 0.0941 - val_loss: 4.2018 - val_acc: 0.0828
-Epoch 31/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.0656 - acc: 0.1018Epoch 00030: val_loss did not improve
-100/100 [==============================] - 65s - loss: 4.0628 - acc: 0.1025 - val_loss: 4.1906 - val_acc: 0.0933
-Epoch 32/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.0232 - acc: 0.1030Epoch 00031: val_loss did not improve
-100/100 [==============================] - 67s - loss: 4.0228 - acc: 0.1032 - val_loss: 4.2459 - val_acc: 0.0915
-Epoch 33/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 4.0113 - acc: 0.1040Epoch 00032: val_loss did not improve
-100/100 [==============================] - 66s - loss: 4.0098 - acc: 0.1042 - val_loss: 4.1867 - val_acc: 0.0898
-Epoch 34/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.9917 - acc: 0.1097Epoch 00033: val_loss improved from 4.16744 to 4.13638, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 67s - loss: 3.9931 - acc: 0.1099 - val_loss: 4.1364 - val_acc: 0.0969
-Epoch 35/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.9833 - acc: 0.1108Epoch 00034: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.9858 - acc: 0.1106 - val_loss: 4.4797 - val_acc: 0.0547
-Epoch 36/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.9663 - acc: 0.1164Epoch 00035: val_loss improved from 4.13638 to 4.10608, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 65s - loss: 3.9645 - acc: 0.1158 - val_loss: 4.1061 - val_acc: 0.0967
-Epoch 37/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.9572 - acc: 0.1104Epoch 00036: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.9574 - acc: 0.1104 - val_loss: 4.1565 - val_acc: 0.0777
-Epoch 38/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.9346 - acc: 0.1176Epoch 00037: val_loss did not improve
-100/100 [==============================] - 68s - loss: 3.9352 - acc: 0.1173 - val_loss: 4.1986 - val_acc: 0.0933
-Epoch 39/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.9015 - acc: 0.1200Epoch 00038: val_loss improved from 4.10608 to 4.09923, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 3.8972 - acc: 0.1213 - val_loss: 4.0992 - val_acc: 0.0891
-Epoch 40/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8957 - acc: 0.1194Epoch 00039: val_loss did not improve
-100/100 [==============================] - 68s - loss: 3.8954 - acc: 0.1190 - val_loss: 4.2880 - val_acc: 0.0953
-Epoch 41/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8882 - acc: 0.1254Epoch 00040: val_loss did not improve
-100/100 [==============================] - 66s - loss: 3.8881 - acc: 0.1252 - val_loss: 4.1276 - val_acc: 0.1054
-Epoch 42/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8620 - acc: 0.1278Epoch 00041: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.8597 - acc: 0.1286 - val_loss: 4.1736 - val_acc: 0.0725
-Epoch 43/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8447 - acc: 0.1310Epoch 00042: val_loss did not improve
-100/100 [==============================] - 68s - loss: 3.8442 - acc: 0.1314 - val_loss: 4.1178 - val_acc: 0.0984
-Epoch 44/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8340 - acc: 0.1275Epoch 00043: val_loss improved from 4.09923 to 4.09655, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 3.8344 - acc: 0.1283 - val_loss: 4.0965 - val_acc: 0.1031
-Epoch 45/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8169 - acc: 0.1336Epoch 00044: val_loss did not improve
-100/100 [==============================] - 65s - loss: 3.8167 - acc: 0.1332 - val_loss: 4.1154 - val_acc: 0.1047
-Epoch 46/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8087 - acc: 0.1349Epoch 00045: val_loss improved from 4.09655 to 4.06445, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 3.8082 - acc: 0.1348 - val_loss: 4.0645 - val_acc: 0.1002
-Epoch 47/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.8064 - acc: 0.1332Epoch 00046: val_loss improved from 4.06445 to 3.93597, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 3.8035 - acc: 0.1342 - val_loss: 3.9360 - val_acc: 0.1244
-Epoch 48/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.7672 - acc: 0.1435Epoch 00047: val_loss did not improve
-100/100 [==============================] - 66s - loss: 3.7661 - acc: 0.1436 - val_loss: 4.0309 - val_acc: 0.1123
-Epoch 49/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.7707 - acc: 0.1444Epoch 00048: val_loss did not improve
-100/100 [==============================] - 66s - loss: 3.7705 - acc: 0.1439 - val_loss: 3.9458 - val_acc: 0.1344
-Epoch 50/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.7497 - acc: 0.1468Epoch 00049: val_loss did not improve
-100/100 [==============================] - 65s - loss: 3.7507 - acc: 0.1459 - val_loss: 4.2207 - val_acc: 0.1109
-Epoch 51/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.7096 - acc: 0.1506Epoch 00050: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.7072 - acc: 0.1511 - val_loss: 4.0036 - val_acc: 0.1071
-Epoch 52/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.7297 - acc: 0.1480Epoch 00051: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.7234 - acc: 0.1486 - val_loss: 4.1259 - val_acc: 0.0915
-Epoch 53/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6894 - acc: 0.1536Epoch 00052: val_loss did not improve
-100/100 [==============================] - 65s - loss: 3.6878 - acc: 0.1534 - val_loss: 4.0889 - val_acc: 0.1036
-Epoch 54/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6811 - acc: 0.1620Epoch 00053: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.6824 - acc: 0.1615 - val_loss: 4.0658 - val_acc: 0.1313
-Epoch 55/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6482 - acc: 0.1583Epoch 00054: val_loss did not improve
-100/100 [==============================] - 67s - loss: 3.6507 - acc: 0.1584 - val_loss: 3.9552 - val_acc: 0.1156
-Epoch 56/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6522 - acc: 0.1588Epoch 00055: val_loss improved from 3.93597 to 3.92297, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 3.6533 - acc: 0.1590 - val_loss: 3.9230 - val_acc: 0.1623
-Epoch 57/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6405 - acc: 0.1569Epoch 00056: val_loss did not improve
-100/100 [==============================] - 66s - loss: 3.6421 - acc: 0.1572 - val_loss: 4.0665 - val_acc: 0.1123
-Epoch 58/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6050 - acc: 0.1682Epoch 00057: val_loss did not improve
-100/100 [==============================] - 68s - loss: 3.6063 - acc: 0.1678 - val_loss: 3.9772 - val_acc: 0.1364
-Epoch 59/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.6000 - acc: 0.1647Epoch 00058: val_loss did not improve
-100/100 [==============================] - 66s - loss: 3.6000 - acc: 0.1641 - val_loss: 3.9750 - val_acc: 0.1375
-Epoch 60/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.5994 - acc: 0.1664Epoch 00059: val_loss did not improve
-100/100 [==============================] - 66s - loss: 3.5985 - acc: 0.1669 - val_loss: 3.9676 - val_acc: 0.1328
-Epoch 61/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.5655 - acc: 0.1674Epoch 00060: val_loss improved from 3.92297 to 3.85282, saving model to saved_models/weights.best.from_scratch.hdf5
-100/100 [==============================] - 66s - loss: 3.5653 - acc: 0.1679 - val_loss: 3.8528 - val_acc: 0.1313
-Epoch 62/100
- 99/100 [============================&gt;.] - ETA: 0s - loss: 3.5598 - acc: 0.1781Epoch 00061: val_loss did not improve
-100/100 [==============================] - 71s - loss: 3.5583 - acc: 0.1790 - val_loss: 3.9958 - val_acc: 0.1468
-Epoch 63/100
- 47/100 [=============&gt;................] - ETA: 34s - loss: 3.5363 - acc: 0.1789</pre>
+Epoch 1/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8838 - acc: 0.0088Epoch 00000: val_loss improved from inf to 4.86449, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 78s - loss: 4.8836 - acc: 0.0088 - val_loss: 4.8645 - val_acc: 0.0141
+Epoch 2/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8701 - acc: 0.0109Epoch 00001: val_loss did not improve
+100/100 [==============================] - 71s - loss: 4.8702 - acc: 0.0108 - val_loss: 4.8681 - val_acc: 0.0121
+Epoch 3/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8608 - acc: 0.0110Epoch 00002: val_loss improved from 4.86449 to 4.85753, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 70s - loss: 4.8611 - acc: 0.0109 - val_loss: 4.8575 - val_acc: 0.0121
+Epoch 4/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8523 - acc: 0.0129Epoch 00003: val_loss improved from 4.85753 to 4.84732, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 69s - loss: 4.8521 - acc: 0.0128 - val_loss: 4.8473 - val_acc: 0.0155
+Epoch 5/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8377 - acc: 0.0142Epoch 00004: val_loss improved from 4.84732 to 4.82424, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 70s - loss: 4.8374 - acc: 0.0145 - val_loss: 4.8242 - val_acc: 0.0141
+Epoch 6/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8230 - acc: 0.0170Epoch 00005: val_loss improved from 4.82424 to 4.82091, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 73s - loss: 4.8227 - acc: 0.0170 - val_loss: 4.8209 - val_acc: 0.0207
+Epoch 7/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8160 - acc: 0.0174Epoch 00006: val_loss did not improve
+100/100 [==============================] - 72s - loss: 4.8162 - acc: 0.0172 - val_loss: 4.8302 - val_acc: 0.0138
+Epoch 8/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.8003 - acc: 0.0202Epoch 00007: val_loss improved from 4.82091 to 4.79404, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 72s - loss: 4.8009 - acc: 0.0200 - val_loss: 4.7940 - val_acc: 0.0225
+Epoch 9/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7812 - acc: 0.0203Epoch 00008: val_loss did not improve
+100/100 [==============================] - 72s - loss: 4.7812 - acc: 0.0203 - val_loss: 4.8197 - val_acc: 0.0207
+Epoch 10/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7801 - acc: 0.0221Epoch 00009: val_loss improved from 4.79404 to 4.78840, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 77s - loss: 4.7786 - acc: 0.0223 - val_loss: 4.7884 - val_acc: 0.0156
+Epoch 11/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7613 - acc: 0.0230Epoch 00010: val_loss improved from 4.78840 to 4.75623, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 70s - loss: 4.7618 - acc: 0.0231 - val_loss: 4.7562 - val_acc: 0.0242
+Epoch 12/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.7151 - acc: 0.0283Epoch 00011: val_loss did not improve
+100/100 [==============================] - 69s - loss: 4.7142 - acc: 0.0286 - val_loss: 4.7735 - val_acc: 0.0225
+Epoch 13/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.6737 - acc: 0.0317Epoch 00012: val_loss improved from 4.75623 to 4.72483, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 70s - loss: 4.6742 - acc: 0.0314 - val_loss: 4.7248 - val_acc: 0.0259
+Epoch 14/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.6443 - acc: 0.0355Epoch 00013: val_loss improved from 4.72483 to 4.66537, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 70s - loss: 4.6431 - acc: 0.0353 - val_loss: 4.6654 - val_acc: 0.0375
+Epoch 15/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.6000 - acc: 0.0380Epoch 00014: val_loss improved from 4.66537 to 4.63247, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 69s - loss: 4.5998 - acc: 0.0385 - val_loss: 4.6325 - val_acc: 0.0391
+Epoch 16/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.5692 - acc: 0.0445Epoch 00015: val_loss improved from 4.63247 to 4.59688, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 71s - loss: 4.5683 - acc: 0.0442 - val_loss: 4.5969 - val_acc: 0.0345
+Epoch 17/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.5281 - acc: 0.0469Epoch 00016: val_loss did not improve
+100/100 [==============================] - 68s - loss: 4.5265 - acc: 0.0470 - val_loss: 4.6343 - val_acc: 0.0380
+Epoch 18/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.5171 - acc: 0.0469Epoch 00017: val_loss did not improve
+100/100 [==============================] - 70s - loss: 4.5157 - acc: 0.0472 - val_loss: 4.6470 - val_acc: 0.0397
+Epoch 19/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.4860 - acc: 0.0472Epoch 00018: val_loss improved from 4.59688 to 4.58351, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 69s - loss: 4.4860 - acc: 0.0472 - val_loss: 4.5835 - val_acc: 0.0484
+Epoch 20/20
+ 99/100 [============================&gt;.] - ETA: 0s - loss: 4.4583 - acc: 0.0517Epoch 00019: val_loss improved from 4.58351 to 4.55134, saving model to saved_models/weights.best.from_scratch.hdf5
+100/100 [==============================] - 70s - loss: 4.4560 - acc: 0.0518 - val_loss: 4.5513 - val_acc: 0.0484
+</pre>
 </div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[28]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f754c3d6be0&gt;</pre>
+</div>
+
 </div>
 
 </div>
@@ -14329,7 +14242,7 @@ Epoch 63/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s1">&#39;saved_models/weights.best.from_scratch.hdf5&#39;</span><span class="p">)</span>
@@ -14351,7 +14264,7 @@ Epoch 63/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Refactored for generator due to memory limitations</span>
@@ -14393,7 +14306,7 @@ Epoch 63/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test Accuracy: &#39;</span><span class="p">,</span> <span class="n">test_results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
@@ -14413,7 +14326,7 @@ Epoch 63/100
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test Accuracy:  13.8888888889 %
+<pre>Test Accuracy:  5.33333333333 %
 </pre>
 </div>
 </div>
@@ -14804,7 +14717,7 @@ test_{network} = bottleneck_features['test']</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I used the vanilla xception model.  I've done some work with CNN before, and Inception/Xception is pretty good at generalizing and has a lot of space to learn classes.  I used a GAP instead of flatten to hopefully retain as much data as possible from the last layer of xception while flattening.</p>
+<p>I used the vanilla xception model.  I've done some work with CNN before, and Inception/Xception is pretty good at generalizing and has a lot of space to learn classes.  I used a GAP instead of flatten to hopefully retain as much data as possible from the last layer of xception while flattening.  I didn't need to do anything else, because it got up to over 80% accurate in the 20 epochs.</p>
 
 </div>
 </div>
@@ -15163,6 +15076,16 @@ Epoch 20/20
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The output is about what I expected.  The first two clearly have my Irish Wolfhound front and center in the image, so the classifier has no problem with them.  There's pictures of two toy cats in a toy car for the next image, so it correctly determined that neither dogs or people are in the image.  Apparently, I look like a Petit_basset_griffon_vendeen.  It incorrectly identified my Beaceron as a Cane_corso, and again as a Chinese_shar-pei.  The Dachshund is kind of interesting, the picture is of my daughter wearing a costume where it's a dragon that sticks out from her waist, so I could see the long skinny dragon being a classified as a dachshund.  The last image doesn't have a good focus on anything.  It has a few basset hounds, but they must be too small in the frame to pick up.  It can still identify faces, so it tries to ID it anyways.  The corgi isn't a bad guess for Basset hounds, since they're both stocky, long dogs.</p>
+<p>My algorithm could be improved with better data augmentation.  1) I think zooming in and out on test images would help to recognize when dogs are small in the picture.  2)  I think, since one of my dogs is black, it had a hard time telling him from other black breeds.  Maybe by lightening or darkening training images, it might get better at identifying black dogs. 3) It could also be improved by trying to detect more than one dog.  Several of the images I used had multiple dogs.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[43]:</div>
@@ -15217,16 +15140,6 @@ This human looks like a Cardigan_welsh_corgi
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The output is about what I expected.  The first two clearly have my Irish Wolfhound front and center in the image, so the classifier has no problem with them.  There's pictures of two toy cats in a toy car for the next image, so it correctly determined that neither dogs or people are in the image.  Apparently, I look like a Petit_basset_griffon_vendeen.  It incorrectly identified my Beaceron as a Cane_corso, and again as a Chinese_shar-pei.  The Dachshund is kind of interesting, the picture is of my daughter wearing a costume where it's a dragon that sticks out from her waist, so I could see the long skinny dragon being a classified as a dachshund.  The last image doesn't have a good focus on anything.  It has a few basset hounds, but they must be too small in the frame to pick up.  It can still identify faces, so it tries to ID it anyways.  The corgi isn't a bad guess for Basset hounds, since they're both stocky, long dogs.</p>
-<p>My algorithm could be improved with better data augmentation.  1) I think zooming in and out on test images would help to recognize when dogs are small in the picture.  2)  I think, since one of my dogs is black, it had a hard time telling him from other black breeds.  Maybe by lightening or darkening training images, it might get better at identifying black dogs. 3) It could also be improved by trying to detect more than one dog.  Several of the images I used had multiple dogs.</p>
-
-</div>
-</div>
 </div>
     </div>
   </div>
